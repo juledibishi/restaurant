@@ -57,10 +57,7 @@ export class RestaurantComponent implements OnInit {
 
   totalAmount: number = 0;
 
-
-
-
-
+  test: string = ''
 
   ngOnInit() {
 
