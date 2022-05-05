@@ -22,7 +22,7 @@ export class UshtrimeComponent implements OnInit {
     emri: 'citroen',
 
   }]
-
+  test: string = ''
 
 
   veturaSelektuar: string = ''
