@@ -1,0 +1,106 @@
+<div class="bodi">
+    <div class="restaurant">
+        <h3>RESTAURANT</h3>
+    </div>
+
+    <div class="table-one">
+        <div class="box">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr (click)="selectArticle(item)"
+                        *ngFor="let item of articles">
+                        <td>{{item.name}}</td>
+                        <td>{{item.price}}</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+        <div class="box">
+            <div class="form-group">
+                <label>Product Name</label>
+                <input [(ngModel)]="productName"
+                       type="text"
+                       class="form-control"
+                       readonly>
+            </div>
+            <div class="form-group">
+                <label>Price</label>
+                <input [(ngModel)]="price"
+                       type="number"
+                       class="form-control"
+                       readonly>
+            </div>
+            <div class="form-group">
+                <label> Quantity</label>
+                <input [(ngModel)]="quantity"
+                       type="number"
+                       class="form-control"
+                       (ngModelChange)="calculate()">
+            </div>
+
+            <div class="form-group">
+                <label>Total</label>
+                <input [(ngModel)]="total"
+                       type="number"
+                       value="0"
+                       class="form-control">
+            </div>
+            <div class="button-first">
+                <button (click)="add()"
+                        type="button"
+                        class="btn btn-success"
+                        [disabled]="!productName||!price">Add</button>
+                <button (click)="clear()"
+                        type="button"
+                        class="btn btn-danger">Clear</button>
+            </div>
+        </div>
+        <div class="box">
+            <div class="selectedArticles">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Sum</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of selectetArticles; let index=index">
+                            <td>{{item.name}}</td>
+                            <td>{{item.quantity}}</td>
+                            <td>{{item.price}}</td>
+                            <td>{{item.sum}}</td>
+                            <td> <button (click)="remove(index)"
+                                        class="btn btn-danger">X</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="form-group">
+                <div>
+                    <label>Total Amount</label>
+                    <input [(ngModel)]="totalAmount"
+                           type="number"
+                           class="form-control">
+                </div>
+                <div class="button-second">
+                    <button (click)="order()"
+                            type="button"
+                            class="btn btn-success"
+                            [disabled]="!selectetArticles.length">Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

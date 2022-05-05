@@ -1,0 +1,88 @@
+<br>
+<div class="input-table">
+
+    <div class="inputet">
+        <div class="form-group">
+            <label>Emri</label>
+            <input [(ngModel)]="emri"
+                   type="text"
+                   class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label>Mbiemri</label>
+            <input [(ngModel)]="mbiemri"
+                   type="text"
+                   class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label>Mosha</label>
+            <input [(ngModel)]="mosha"
+                   type="number"
+                   class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Numri Amz</label>
+            <input [(ngModel)]="numriamz"
+                   type="number"
+                   class="form-control">
+        </div>
+
+        <div>
+            <button class="btn btn-success"
+                    (click)="shtoPerson()">Shto</button>
+        </div>
+        <div>
+            <button (click)="ndryshoPersonin()"
+                    class="btn btn-info">Ndrysho</button>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+
+
+    <div class="input-filter">
+        <input [(ngModel)]="filtro"
+               style="width: 350px;"
+               type="text"
+               placeholder="Kerko ne baze te emrit"
+               class="form-control">
+        <button (click)="kerkoPersonat()"
+                class="btn btn-primary">Filtro</button>
+    </div><br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Emri</th>
+                <th>Mbiemri</th>
+                <th>Mosha</th>
+                <th>Numri Amz</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let obj of personat;">
+                <td>{{obj.emri}}</td>
+                <td>{{obj.mbiemri}}</td>
+                <td>{{obj.mosha}}</td>
+                <td>{{obj.numriamz}}</td>
+                <td>
+                    <button (click)="editoPersonin(obj)"
+                            class="btn btn-info">
+                        <i class="fa-solid fa-pen"></i>
+                    </button>
+                </td>
+                <td>
+                    <button (click)="fshijPersonin(obj)"
+                            class="btn btn-danger">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
